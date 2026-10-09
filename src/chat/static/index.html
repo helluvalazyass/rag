@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Streaming Chat</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Streaming Chat <span id="model" class="muted"></span></h1>
+    <div class="controls">
+      <label>Effort
+        <select id="effort">
+          <option>low</option>
+          <option selected>medium</option>
+          <option>high</option>
+          <option>xhigh</option>
+          <option>max</option>
+        </select>
+      </label>
+      <label>Thinking
+        <select id="thinking-display">
+          <option value="summarized" selected>summarized</option>
+          <option value="omitted">omitted</option>
+        </select>
+      </label>
+      <label><input type="checkbox" id="enable-tools" checked> Local tools</label>
+      <label><input type="checkbox" id="enable-web-search"> Web search</label>
+      <button id="new-chat" type="button">New chat</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="chat">
+      <div id="messages"></div>
+      <form id="composer">
+        <textarea id="input" rows="2" placeholder="Ask something… (Enter to send, Shift+Enter for newline)"></textarea>
+        <button id="send" type="submit">Send</button>
+        <button id="stop" type="button" hidden>Stop</button>
+      </form>
+    </section>
+
+    <aside id="inspector">
+      <div class="inspector-head">
+        <h2>SSE events <span id="event-count" class="muted">0</span></h2>
+        <label><input type="checkbox" id="show-deltas" checked> deltas</label>
+        <button id="clear-log" type="button">Clear</button>
+      </div>
+      <ol id="event-log"></ol>
+    </aside>
+  </main>
+
+  <!-- Markdown rendering for text blocks (optional: falls back to plain text if these fail to load) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

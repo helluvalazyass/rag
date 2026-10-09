@@ -1,0 +1,21 @@
+[project]
+name = "rag"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Manish Yadav", email = "monuuyad@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "anthropic>=1.12.1",
+    "fastapi[standard]>=0.143.0",
+    "python-dotenv>=1.2.4",
+]
+
+[project.scripts]
+rag = "rag:main"
+
+[build-system]
+requires = ["uv_build>=0.12.18,<0.13.0"]
+build-backend = "uv_build"

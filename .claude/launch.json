@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "chat",
+      "runtimeExecutable": "uv",
+      "runtimeArgs": ["run", "fastapi", "dev", "src/chat/server.py", "--port", "8001"],
+      "port": 8001
+    }
+  ]
+}
